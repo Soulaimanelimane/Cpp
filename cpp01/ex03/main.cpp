@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 12:29:21 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/04 11:46:10 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/04 16:25:31 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.h"
+#include "HumanB.h"
 
-Zombie::Zombie()
+int main()
 {
-    std::cout  << "the Constructor called"  << std::endl;
-}
-
-Zombie::Zombie(std::string n)
 {
-    name = n;
-}
 
-void Zombie::annouce(void)
+    Weapon club = Weapon("test");
+   
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club");
+    bob.attack();
+}
 {
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
 }
-
+return 0;
+}

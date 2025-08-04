@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 12:29:21 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/04 10:32:52 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/04 10:45:26 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Zombie.h"
 
-Zombie::Zombie()
+Zombie* zombieHorde( int N, std::string name )
 {
-    std::cout  << "the Constructor called"  << std::endl;
+    Zombie *p = new Zombie[N];
+    int i = 0;
+    while (i < N)
+    {
+        p[i] = Zombie(name);
+        p[i].annouce();  
+        i++;
+    }
+    return (p);
 }
-
-Zombie::Zombie(std::string n)
-{
-    name = n;
-}
-
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-

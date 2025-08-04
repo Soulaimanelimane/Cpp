@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 12:29:21 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/04 10:49:20 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/04 11:41:15 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-Zombie::Zombie()
+int main()
 {
-    std::cout  << "the Constructor called"  << std::endl;
-}
+    std::string str = "HI THIS IS BRAIN";
+    char *stringPTR = &str[0];
+    std::string &stringREF = str;
+    std::cout << &str << std::endl;
+    std::cout << &stringPTR << std::endl;
+    std::cout << &stringREF << std::endl;
 
-Zombie::Zombie(std::string n)
-{
-    name = n;
+    std::cout << str << std::endl;
+    std::cout << stringPTR << std::endl;
+    std::cout << stringREF << std::endl; 
 }
-
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-

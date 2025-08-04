@@ -6,16 +6,13 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:29:40 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/02 23:21:52 by slimane          ###   ########.fr       */
+/*   Updated: 2025/08/04 10:40:38 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.h"
 
 int main() {
-    Zombie *p; 
-    p = newZombie("kali");
-    randomChump("soul");
-    p->annouce();
-    delete p;
+    Zombie *p = zombieHorde(5, "soul");
+    (void)p;
 }

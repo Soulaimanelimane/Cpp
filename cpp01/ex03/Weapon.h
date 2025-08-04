@@ -1,29 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 12:29:21 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/04 11:48:30 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/04 11:55:22 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-Zombie::Zombie()
-{
-    std::cout  << "the Constructor called"  << std::endl;
-}
-
-Zombie::Zombie(std::string n)
-{
-    name = n;
-}
-
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
+#ifndef WEAPON_H
+#include "Weapon.hpp"
+#endif

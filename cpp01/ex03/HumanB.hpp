@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 12:29:21 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/04 11:48:00 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/04 14:44:09 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
+#include "Weapon.h"
+#include <string>
 
-Zombie::Zombie()
-{
-    std::cout  << "the Constructor called"  << std::endl;
-}
+class HumanB{
+    private:
+        std::string name;
+        Weapon *weaponB;
+    public:
+        HumanB(std::string name);
+        void setWeapon(Weapon &W);
+        void attack();
 
-Zombie::Zombie(std::string n)
-{
-    name = n;
-}
-
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
+};
+#endif

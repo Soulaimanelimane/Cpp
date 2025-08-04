@@ -6,7 +6,7 @@
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 16:29:32 by slimane           #+#    #+#              #
-#    Updated: 2025/07/31 17:06:23 by slimane          ###   ########.fr        #
+#    Updated: 2025/08/04 10:49:11 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ all:${NAME}
 ${NAME} : ${OBJ}
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
-%.o:%.cpp Zombie.hpp
+%.o:%.cpp Zombie.hpp  Zombie.h
 	${CPP} ${CPPFLAGS} -c $< -o $@
 
 clean :

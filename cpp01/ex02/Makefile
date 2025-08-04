@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/31 16:29:32 by slimane           #+#    #+#              #
-#    Updated: 2025/08/04 10:49:01 by slimane          ###   ########.fr        #
+#    Created: 2025/08/04 10:47:29 by slimane           #+#    #+#              #
+#    Updated: 2025/08/04 10:48:20 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-CPPFILE = Zombie.cpp  zombieHorde.cpp main.cpp
+CPPFILE =  main.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 
-NAME = ZombieHorde
+NAME = Brain
 
 all:${NAME}
 
@@ -24,7 +24,7 @@ all:${NAME}
 ${NAME} : ${OBJ}
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
-%.o:%.cpp Zombie.hpp  Zombie.h
+%.o:%.cpp 
 	${CPP} ${CPPFLAGS} -c $< -o $@
 
 clean :

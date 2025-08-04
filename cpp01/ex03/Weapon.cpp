@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 12:29:21 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/04 11:48:27 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/04 13:27:02 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.h"
 
-Zombie::Zombie()
-{
-    std::cout  << "the Constructor called"  << std::endl;
+const std::string &Weapon::getType(){
+    const std::string &reftype = type;
+    return  (reftype);
 }
 
-Zombie::Zombie(std::string n)
-{
-    name = n;
+void Weapon::setType(std::string t) {
+    type = t;
 }
 
-void Zombie::annouce(void)
+Weapon::Weapon(std::string name)
 {
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
+    type = name;
 }
-
+Weapon::Weapon()
+{
+    std::cout << "Constructor called" << std::endl;
+}

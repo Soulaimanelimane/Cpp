@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 12:29:21 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/04 11:48:04 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/04 15:15:35 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.h"
 
-Zombie::Zombie()
+void HumanA::attack()
 {
-    std::cout  << "the Constructor called"  << std::endl;
+    if (weaponA)
+        std::cout << name <<  " attacks with their " << weaponA->getType()  << std::endl;
 }
 
-Zombie::Zombie(std::string n)
-{
+HumanA::HumanA(std::string n, Weapon &W)  {
     name = n;
+    weaponA = &W;
 }
-
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
