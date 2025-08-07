@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Line.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/06 11:55:08 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/06 12:08:51 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/06 12:21:03 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-Zombie::Zombie(std::string n)
-{
-    name = n;
-    std::cout  << "the paramatrize Constructor create " << name << std::endl;
-}
-
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
+#ifndef LINE_H
+#define LINE_H
+#include "Line.hpp"
+void ft_replace_lines(Line file, int flag, std::ofstream &outfile);
+#endif

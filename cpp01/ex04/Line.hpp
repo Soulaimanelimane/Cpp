@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Line.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/06 11:55:08 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/05 20:58:51 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/06 12:05:51 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef LINE_HPP
+#define LINE_HPP
+#include <iostream>
+#include <string>
+#include <fstream>
 
-Zombie::Zombie(std::string n)
-{
-    name = n;
-    std::cout  << "the paramatrize Constructor create " << name << std::endl;
-}
-
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
+class Line {
+    private :
+        std::string line;
+        std::string s1;
+        std::string s2;
+    public :
+        Line();
+        void set_str(std::string s, int flag);
+        std::string get_str(int flag);
+};
+#endif 
