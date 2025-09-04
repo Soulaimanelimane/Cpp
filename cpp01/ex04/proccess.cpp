@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 11:11:11 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/07 04:09:14 by slimane          ###   ########.fr       */
+/*   Updated: 2025/08/30 10:18:23 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void ft_replace_lines(Line file, int flag, std::ofstream &outfile)
     {
         size_t j = 0;
         while (j < find.size() && i + j < line.size() && line[i + j] == find[j])
-        {
             j++;
-        }
 
         if (j == find.size())
         {

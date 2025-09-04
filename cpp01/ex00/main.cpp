@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:29:40 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/06 11:55:23 by slimane          ###   ########.fr       */
+/*   Updated: 2025/08/30 15:59:48 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@ int main() {
     p = newZombie("heap");
     p->annouce();
     randomChump("stack");
+    delete p;
 }

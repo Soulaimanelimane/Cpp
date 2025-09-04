@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/30 15:58:58 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/30 10:38:59 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/30 13:24:20 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-Zombie::Zombie(std::string n)
+#ifndef Harl_HPP
+#define Harl_HPP
+#include <string>
+#include <iostream>
+class Harl
 {
-    name = n;
-    std::cout  << "the paramatrize Constructor create " << name << std::endl;
-}
+    private:
+        void debug( void );
+        void info( void );
+        void warning( void );
+        void error( void );
+    public:
+        void complain( std::string level );
+};
 
-Zombie::~Zombie()
-{
-    std::cerr << "destructor have been called to destroy the Zombie " << name << std::endl;
-}
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
+#endif 

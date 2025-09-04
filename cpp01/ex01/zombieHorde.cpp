@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 10:32:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 10:45:26 by slimane          ###   ########.fr       */
+/*   Updated: 2025/08/30 16:05:54 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Zombie* zombieHorde( int N, std::string name )
     while (i < N)
     {
         p[i] = Zombie(name);
-        p[i].annouce();  
         i++;
     }
     return (p);

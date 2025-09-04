@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/30 15:58:58 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/30 18:16:44 by slimane           #+#    #+#             */
+/*   Updated: 2025/09/03 20:17:09 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
+#include <string>
+#include <iostream>
 
-Zombie::Zombie(std::string n)
-{
-    name = n;
-    std::cout  << "the paramatrize Constructor create " << name << std::endl;
-}
-
-Zombie::~Zombie()
-{
-    std::cerr << "destructor have been called to destroy the Zombie " << name << std::endl;
-}
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
+class Fixed {
+    private :
+        int fixed_point;
+        static const int fract_part = 8;
+    public :
+        Fixed();
+        Fixed(const Fixed &obj);
+        Fixed& operator = (Fixed& obj);
+        ~Fixed();
+        int getRawBits( void ) const;
+        void setRawBits( int const raw );    
+};
+#endif 

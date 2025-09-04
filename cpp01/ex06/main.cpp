@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/30 15:58:58 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/30 13:20:34 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/30 14:51:28 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-Zombie::Zombie(std::string n)
-{
-    name = n;
-    std::cout  << "the paramatrize Constructor create " << name << std::endl;
+int main(int ac , char **av){
+    if (ac != 2)
+    {
+        std::cerr << "ERROR the argument not valid it should be like this ./harlFilter [command]";
+        return (1);
+    }
+    std::string level = av[1];
+    Harl obj;
+    obj.complain(level);
 }
-
-Zombie::~Zombie()
-{
-    std::cerr << "destructor have been called to destroy the Zombie " << name << std::endl;
-}
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-

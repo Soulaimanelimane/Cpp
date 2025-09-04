@@ -6,13 +6,21 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:29:40 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 10:40:38 by slimane          ###   ########.fr       */
+/*   Updated: 2025/08/30 16:08:29 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.h"
 
 int main() {
-    Zombie *p = zombieHorde(5, "soul");
-    (void)p;
+    int n  = 5;
+    Zombie *p = zombieHorde(n, "soul");
+    int i = 0;
+    while (i < n)
+    {
+        p[i].annouce();
+        i++;
+    }
+    delete[] p;
+    
 }

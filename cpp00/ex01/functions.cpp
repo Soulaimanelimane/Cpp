@@ -6,33 +6,33 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:52:24 by slimane           #+#    #+#             */
-/*   Updated: 2025/07/30 14:43:51 by slimane          ###   ########.fr       */
+/*   Updated: 2025/08/29 22:44:43 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void Contact::set_contact(int n, int i, std::string f_name, std::string l_name, std::string nick, std::string secret)
+void Contact::set_contact(std::string n, int i, std::string f_name, std::string l_name, std::string nick, std::string secret)
 {
     num = n;
-    index = i;
+    index = i % 8;
     first_name = f_name;
     last_name = l_name;
     nickname = nick;
     darkest_secret = secret;
 }
 
-void PhoneBook::ADD(int n, int i, std::string f_name, std::string l_name, std::string nick, std::string secret){
-    arr[i].set_contact(n, i, f_name, l_name, nick, secret);
+void PhoneBook::ADD(std::string n, int i, std::string f_name, std::string l_name, std::string nick, std::string secret){
+    arr[i % 8].set_contact(n, i, f_name, l_name, nick, secret);
 }
 
 void PhoneBook::set_index(int i)
 {
-    last_index = i;
+    last_index = i % 8;
 }
-int PhoneBook::get_index()
+int Contact::get_index()
 {
-    return (last_index);
+    return (index);
 }
 
 std::string Contact::get_name(int flag)
@@ -52,7 +52,7 @@ void PhoneBook::print_contacts(void)
 
     while (i < last_index)
     {
-        std::cout << "first name->" + arr[i].get_name(1) + "| last name ->" + arr[i].get_name(2) + "| nickname ->" + arr[i].get_name(3) +"\n";
+        std::cout << "index " << arr[i].get_index()  <<  "| first name->" + arr[i].get_name(1) + "| last name ->" + arr[i].get_name(2) + "| nickname ->" + arr[i].get_name(3) +"\n";
         i++;
     }
 }
@@ -66,8 +66,8 @@ std::string miniminise(std::string str)
 }
 
 void PhoneBook::find_contact(std::string name){
+    
     int i = 0;
-
     while (i < last_index)
     {
         if (arr[i].get_name(1) == name)

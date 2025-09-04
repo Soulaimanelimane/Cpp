@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:31:28 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/02 19:32:50 by slimane          ###   ########.fr       */
+/*   Updated: 2025/08/30 15:40:59 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Zombie {
     public:
         Zombie(std::string n);
         void annouce(void);
+        ~Zombie();
 };
 
 #endif

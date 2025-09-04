@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 16:33:52 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/30 15:58:58 by slimane          ###   ########.fr       */
+/*   Created: 2025/08/30 10:37:23 by slimane           #+#    #+#             */
+/*   Updated: 2025/08/30 12:08:08 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-Zombie::Zombie(std::string n)
+int main()
 {
-    name = n;
-    std::cout  << "the paramatrize Constructor create " << name << std::endl;
-}
+    Harl obj;
 
-Zombie::~Zombie()
-{
-    std::cerr << "destructor have been called to destroy the Zombie " << name << std::endl;
+    obj.complain("DEBUG");
+    obj.complain("INFO");
+    obj.complain("WARNING");
+    obj.complain("ERROR");
+    obj.complain("SOUL");
 }
-void Zombie::annouce(void)
-{
-    std::cout << name + ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
