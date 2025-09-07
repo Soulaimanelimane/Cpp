@@ -6,17 +6,17 @@
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/05 19:52:10 by slimane           #+#    #+#              #
-#    Updated: 2025/09/07 00:01:07 by slimane          ###   ########.fr        #
+#    Updated: 2025/09/08 00:22:04 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-CPPFILE = main.cpp ClapTrap.cpp ScavTrap.cpp
+CPPFILE = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 
-NAME = ScavTrap
+NAME = FragTrap
 
 all:${NAME}
 

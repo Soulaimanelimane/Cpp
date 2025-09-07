@@ -6,19 +6,15 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 19:49:41 by slimane           #+#    #+#             */
-/*   Updated: 2025/09/06 23:39:41 by slimane          ###   ########.fr       */
+/*   Updated: 2025/09/08 00:23:33 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ScavTrap obj("Soul");
+    FragTrap obj("Soul");
 
-    obj.attack("training dummy");
-    obj.takeDamage(5);
-    obj.beRepaired(3);
-    obj.takeDamage(20);
-    obj.attack("target");
+    obj.highFivesGuys();
 }

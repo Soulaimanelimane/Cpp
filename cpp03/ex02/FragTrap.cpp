@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 20:58:30 by slimane           #+#    #+#             */
-/*   Updated: 2025/09/07 22:36:36 by slimane          ###   ########.fr       */
+/*   Updated: 2025/09/08 00:17:27 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,8 @@ FragTrap & FragTrap::operator =(const FragTrap &obj) {
 
 void FragTrap::highFivesGuys(void){
     std::cout << "ayouz nk agmanoooo 👋🏿​ .." << std::endl;
+}
+
+FragTrap::~FragTrap(){
+    std::cout << "Desctructor called From FragTrap" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 23:33:39 by slimane           #+#    #+#             */
-/*   Updated: 2025/09/06 23:41:31 by slimane          ###   ########.fr       */
+/*   Updated: 2025/09/08 00:20:18 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ class ScavTrap : public ClapTrap{
         ScavTrap(const ScavTrap &obj);
         ScavTrap &operator = (const ScavTrap &obj);
         void guardGate(); 
+        ~ScavTrap ();
 };
 #endif 

@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 20:27:15 by slimane           #+#    #+#             */
-/*   Updated: 2025/09/07 20:57:56 by slimane          ###   ########.fr       */
+/*   Updated: 2025/09/08 00:21:00 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class FragTrap : public ClapTrap {
         FragTrap & operator =(const FragTrap &obj);
 
         void highFivesGuys(void);
+        
+        ~FragTrap ();
 };
 #endif 
 
