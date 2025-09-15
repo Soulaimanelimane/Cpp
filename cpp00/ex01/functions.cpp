@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:52:24 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/29 22:44:43 by slimane          ###   ########.fr       */
+/*   Updated: 2025/09/15 20:52:19 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,14 @@ std::string Contact::get_name(int flag)
     return ("");
 }
 
-void PhoneBook::print_contacts(void)
+void PhoneBook::print_contacts(int in)
 {
     int i = 0;
-
-    while (i < last_index)
+    if (in >= 8)
+        in = 8;
+    while (i < in)
     {
-        std::cout << "index " << arr[i].get_index()  <<  "| first name->" + arr[i].get_name(1) + "| last name ->" + arr[i].get_name(2) + "| nickname ->" + arr[i].get_name(3) +"\n";
+        std::cout << "index " << arr[i].get_index() + 1  <<  "| first name->" + arr[i].get_name(1) + "| last name ->" + arr[i].get_name(2) + "| nickname ->" + arr[i].get_name(3) +"\n";
         i++;
     }
 }
@@ -65,12 +66,15 @@ std::string miniminise(std::string str)
         return (str);
 }
 
-void PhoneBook::find_contact(std::string name){
+void PhoneBook::find_contact(int index , std::string find){
     
     int i = 0;
-    while (i < last_index)
+    if (index >= 8)
+        index = 8;
+    int tofind = std::stoi(find);
+    while (i < index)
     {
-        if (arr[i].get_name(1) == name)
+        if ((arr[i].get_index() + 1) == tofind)
         {
             std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
             std::cout << "|" << std::setw(10) << i + 1 << "|" << std::setw(10) << miniminise(arr[i].get_name(1)) << "|" << std::setw(10) << miniminise(arr[i].get_name(2)) << "|" << std::setw(10) << miniminise(arr[i].get_name(3)) << "|" << std::endl;
