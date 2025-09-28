@@ -6,11 +6,11 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:48:27 by slimane           #+#    #+#             */
-/*   Updated: 2025/08/04 13:27:02 by slimane          ###   ########.fr       */
+/*   Updated: 2025/09/20 15:24:33 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.h"
+#include "Weapon.hpp"
 
 const std::string &Weapon::getType(){
     const std::string &reftype = type;

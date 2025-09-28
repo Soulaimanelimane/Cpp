@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:10:54 by slimane           #+#    #+#             */
-/*   Updated: 2025/09/03 20:16:32 by slimane          ###   ########.fr       */
+/*   Updated: 2025/09/16 17:45:55 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void )
     Fixed c;
     
     c = b;
-    
+    a.setRawBits(10);
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;

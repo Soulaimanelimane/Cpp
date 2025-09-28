@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:28:47 by slimane           #+#    #+#             */
-/*   Updated: 2025/09/15 20:36:03 by slimane          ###   ########.fr       */
+/*   Updated: 2025/09/28 23:13:15 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ class PhoneBook {
         void print_contacts(int in);
         void find_contact(int index , std::string find);
 };
+
+int ft_isprint(std::string find) ;
+int is_not_num(std::string str) ;
 #endif
