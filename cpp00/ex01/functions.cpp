@@ -6,30 +6,27 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:52:24 by slimane           #+#    #+#             */
-/*   Updated: 2025/09/28 23:11:02 by slimane          ###   ########.fr       */
+/*   Updated: 2025/10/07 20:10:55 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void Contact::set_contact(std::string n, int i, std::string f_name, std::string l_name, std::string nick, std::string secret)
+void Contact::set_contact(std::string n, int i, std::string first, std::string last, std::string nick, std::string secret)
 {
     num = n;
     index = i % 8;
-    first_name = f_name;
-    last_name = l_name;
+    first_name = first;
+    last_name = last;
     nickname = nick;
     darkest_secret = secret;
 }
 
-void PhoneBook::ADD(std::string n, int i, std::string f_name, std::string l_name, std::string nick, std::string secret){
-    arr[i % 8].set_contact(n, i, f_name, l_name, nick, secret);
+void PhoneBook::ADD(std::string n, int i, std::string first, std::string last, std::string nick, std::string secret)
+{
+    arr[i % 8].set_contact(n, i, first, last, nick, secret);
 }
 
-void PhoneBook::set_index(int i)
-{
-    last_index = i % 8;
-}
 int Contact::get_index()
 {
     return (index);
@@ -74,9 +71,7 @@ int ft_isprint(std::string find) {
     while (find[i])
     {
         if (isprint(find[i]) == 0)
-        {
             return 0;
-        }
         i++;
     }
     return 1;
@@ -88,11 +83,24 @@ int is_not_num(std::string str) {
     {
         if (isdigit(str[i]) != 1)
         {
-            std::cerr << "the number phone should contain just numbers" << std::endl;
+            std::cerr << "the number  should contain just numbers" << std::endl;
             return 1;
         }
     }
     return 0;
+}
+
+int ft_atoi(std::string str){
+    int res  = 0;
+    int i = 0;
+    while (str[i])
+    {
+        res = (res * 10) + (str[i] - '0');
+        if (res > 8)
+            return (10);
+        i++;
+    }
+    return res;
 }
 
 void PhoneBook::find_contact(int index , std::string find){
@@ -101,8 +109,8 @@ void PhoneBook::find_contact(int index , std::string find){
     if (index >= 8)
         index = 8;
     if (find == "\0" || !ft_isprint(find) || is_not_num(find))
-        exit(1);
-    int tofind = std::stoi(find);
+        std::exit(1);
+    int tofind = ft_atoi(find);
     while (i < index)
     {
         if ((arr[i].get_index() + 1) == tofind)
