@@ -43,10 +43,40 @@ class ft : public derived
     }
 };
 
-int main() {
-    test *a;
-    ft p;
-    a = &p;
-    a->ft_();
 
+
+
+int test(char a)
+{
+    return -2;
+}
+
+int test(int f)
+{
+    return f + 2;
+}
+
+class  z
+{
+    public :
+        z();
+        z(z &other);
+        z &operator=(z &other);
+        ~z();
+        int a;
+        char b;
+        int operator*(z  &other)
+        {
+            return a * other.a;
+        }
+
+};
+
+int main()
+{
+    z a;
+    a.a = 25;
+    z b;
+    b.a = 5;
+    std::cout << a * b << std::endl ;
 }

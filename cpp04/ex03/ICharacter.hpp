@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 23:10:41 by slimane           #+#    #+#             */
-/*   Updated: 2025/11/06 22:18:54 by slimane          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:00:59 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 
 class ICharacter
 {
-    protected:
-        std::string name;
     public:
         ICharacter();
         ICharacter(const std::string & name);

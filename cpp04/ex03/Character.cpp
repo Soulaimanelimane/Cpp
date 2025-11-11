@@ -6,21 +6,23 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 19:24:23 by slimane           #+#    #+#             */
-/*   Updated: 2025/11/06 22:41:39 by slimane          ###   ########.fr       */
+/*   Updated: 2025/11/11 21:09:11 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() : ICharacter()
+Character::Character()
 {
+    name = "";
     for (int i = 0; i < 4; i++)
         slots[i] = NULL;
     std::cout << "default Constructor called From Character" << std::endl;
 }
 
-Character::Character(std::string const &name) : ICharacter(name)
+Character::Character(std::string const &name)
 {
+    this->name = name ; 
     for (int i = 0; i < 4; i++)
         slots[i] = NULL;
     std::cout << "Parametrize Constructor called From Character" << std::endl;
@@ -31,7 +33,11 @@ Character::Character(Character const &obj)
     std::cout << "Copy Constructor called From Character" << std::endl;
     name = obj.name;
     for (int i = 0; (obj.slots[i] && i < 4); i++)
+    {
+        if (slots[i])
+            delete slots[i];
         slots[i] = obj.slots[i]->clone();
+    }
 }
 
 Character & Character::operator=(Character const &obj)
@@ -41,7 +47,11 @@ Character & Character::operator=(Character const &obj)
     std::cout << "Copy assingment operator called From Character" << std::endl;
     name = obj.name;
     for (int i = 0; (obj.slots[i] && i < 4); i++)
+    {
+        if (slots[i])
+            delete slots[i];
         slots[i] = obj.slots[i]->clone();
+    }
 }
 
 std::string const & Character::getName()
@@ -91,5 +101,6 @@ void Character::use(int idx, ICharacter& target)
 
 Character::~Character()
 {
+    delete[] slots;
     std::cout << "Destructor Called From Character" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:18:09 by slimane           #+#    #+#             */
-/*   Updated: 2025/11/06 22:22:31 by slimane          ###   ########.fr       */
+/*   Updated: 2025/11/11 15:58:08 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class Character : public ICharacter
 {
     private :
+        std::string name;
         AMateria *slots[4];
     public :
         Character();
