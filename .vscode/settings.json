@@ -66,7 +66,24 @@
         "stack": "cpp",
         "__cxx_version": "cpp",
         "filesystem": "cpp",
+<<<<<<< HEAD
         "__functional_03": "cpp",
         "memory_resource": "cpp"
+=======
+        "charconv": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "map": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "format": "cpp",
+        "numbers": "cpp",
+        "span": "cpp",
+        "text_encoding": "cpp",
+        "cinttypes": "cpp",
+        "variant": "cpp"
+>>>>>>> 42d4329 (push to my laptop HP)
     }
 }

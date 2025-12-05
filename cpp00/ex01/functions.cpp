@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:52:24 by slimane           #+#    #+#             */
-/*   Updated: 2025/10/07 20:10:55 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/04 19:43:54 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void PhoneBook::find_contact(int index , std::string find){
     if (index >= 8)
         index = 8;
     if (find == "\0" || !ft_isprint(find) || is_not_num(find))
-        std::exit(1);
+       exit(1);
     int tofind = ft_atoi(find);
     while (i < index)
     {
