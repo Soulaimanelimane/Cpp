@@ -5,32 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/29 18:54:59 by slimane           #+#    #+#              #
-#    Updated: 2025/12/04 19:44:35 by slimane          ###   ########.fr        #
+#    Created: 2025/09/08 01:09:36 by slimane           #+#    #+#              #
+#    Updated: 2025/11/24 17:31:44 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP= c++
-CPPFLAGS= -Wall -Wextra -Werror  -std=c++98 -g #-fsanitize=address
 
-CPPFILE= main.cpp functions.cpp
-OBJ= ${CPPFILE:.cpp=.o}
+CPP = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
+CPPFILE = main.cpp  Bureaucrat.cpp
+OBJ = ${CPPFILE:.cpp=.o}
 
-NAME=PhoneBook
+NAME = Bureaucrat
 
 all:${NAME}
 
-${NAME}:${OBJ}
+
+${NAME} : ${OBJ}
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
-%.o:%.cpp  PhoneBook.hpp Contact.hpp
+%.o:%.cpp Bureaucrat.hpp 
 	${CPP} ${CPPFLAGS} -c $< -o $@
 
-clean:
+clean : 
 	rm -f ${OBJ}
 
-fclean: clean
+fclean:clean 
 	rm -f ${NAME}
 
 re:fclean all
-.PHONY:clean
+
+.PHONY: clean
