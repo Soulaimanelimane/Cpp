@@ -6,15 +6,16 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 17:36:27 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/10 17:58:58 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/10 17:57:22 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+
 Bureaucrat::Bureaucrat() : name("amghar") , grade(149)
 {
-    std::cout << "Bureaucrat the Constructor " << std::endl;
+    std::cout << "Bureaucrat call the Default Constructor " << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string n, int grd) : name(n), grade(grd)
@@ -85,24 +86,40 @@ void Bureaucrat::decrement_grade()
 }
 
 
-void Bureaucrat::signForm(Form &obj)
+void Bureaucrat::signForm(AForm &obj)
 {
     try
     {
         obj.beSigned(*this);
         std::cout << this->getName() << " signed " << obj.getName() << std::endl; 
     }
-    catch (const Form::GradeTooLowException &e)
+    catch (const AForm::GradeTooLowException &e)
     {
         std::cout << this->getName() << " couldn't sign " << obj.getName() << " because "
             << " grade too low" << std::endl;
     }
-    catch (const Form::GradeTooHighException &e)
+    catch (const AForm::GradeTooHighException &e)
     {
         std::cout << this->getName() << " couldn't sign " << obj.getName() << " because "
             << " grade too High" << std::endl;
     }
 }
+
+
+void Bureaucrat::executeForm(AForm const  &form) const 
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() ;
+    }
+    
+}
+
 
 std::ostream & operator<<(std::ostream &out , Bureaucrat & obj)
 {

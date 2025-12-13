@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 11:04:40 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/05 12:10:29 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/10 17:55:14 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ AForm::AForm() : name("AForm") , sgnd(false) , grade_sngd(150), grade_exe(145)
 
 AForm::AForm(const std::string &n, int grade_sn, int grade_ex) : name(n),   sgnd(false) , grade_sngd(grade_sn), grade_exe(grade_ex)
 {
-    std::cout << "the Parametrize Constructor called from AForm" << std::endl;
+    if (grade_sn < 1 || grade_ex < 1)
+        throw GradeTooLowException();
+    else if (grade_ex > 150 || grade_sn > 150)
+        throw GradeTooHighException();
+    std::cout << "the Parametrize Constructor called from Form" << std::endl;
 }
 
 AForm::AForm(const AForm &obj) : name(obj.name),   sgnd(obj.sgnd) , 
@@ -71,10 +75,10 @@ const char *AForm::GradeTooLowException::what() const throw()
 
 const char *AForm::NotSigned::what() const throw()
 {
-    return ("the form is not sogned Awldi");
+    return ("the form is not signed Awldi\n");
 }
 
-void AForm::beSigned(Bureaucrat &obj)
+void AForm::beSigned(const Bureaucrat &obj) 
 {
     if (obj.getGrade() > this->grade_sngd)
         throw GradeTooLowException();
