@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 21:03:41 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/13 21:07:42 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/14 15:45:26 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Serializer
 };
 
 
-Serializer::Serializer(/* args */)
+Serializer::Serializer()
 {
 }
 
