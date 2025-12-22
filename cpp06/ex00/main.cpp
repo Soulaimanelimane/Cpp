@@ -5,30 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 18:19:25 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/21 18:27:17 by slimane          ###   ########.fr       */
+/*   Created: 2025/12/14 15:45:55 by slimane           #+#    #+#             */
+/*   Updated: 2025/12/21 18:40:18 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "Bureaucrat.hpp"
+#include "ScalarConverter.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-    try
+    if (ac != 2)
     {
-        Bureaucrat bureau("soul", 100);
-        ShrubberyCreationForm shrub("soulaimane");
-        RobotomyRequestForm robo("robo");
-        PresidentialPardonForm pres("president");
-        bureau.signForm(pres);
-        bureau.executeForm(pres);
+        std::cout << "the argument should be like this ./convert {value} " << std::endl;
+        return 1;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() ;
-    }
-    
+    ScalarConverter::convert(av[1]);
 }

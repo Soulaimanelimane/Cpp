@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 17:35:21 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/02 19:37:15 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/21 18:25:24 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Bureaucrat
         int grade;
     public:
         Bureaucrat();
+        Bureaucrat(std::string n, int grd);
         Bureaucrat(const Bureaucrat & obj);
         Bureaucrat &operator=(const Bureaucrat &obj);
         ~Bureaucrat();

@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/08 01:09:36 by slimane           #+#    #+#              #
-#    Updated: 2025/12/21 18:27:28 by slimane          ###   ########.fr        #
+#    Created: 2025/12/21 18:34:06 by slimane           #+#    #+#              #
+#    Updated: 2025/12/21 20:33:00 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
-CPPFILE = AForm.cpp  Bureaucrat.cpp  main.cpp  PresidentialPardonForm.cpp  RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
+CPPFILE = main.cpp   ScalarConverter.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 
-NAME = AForm
+NAME = convert
 
 all:${NAME}
 
@@ -24,7 +24,7 @@ all:${NAME}
 ${NAME} : ${OBJ}
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
-%.o:%.cpp AForm.hpp  Bureaucrat.hpp  PresidentialPardonForm.hpp  RobotomyRequestForm.hpp  ShrubberyCreationForm.hpp
+%.o:%.cpp ScalarConverter.hpp 
 	${CPP} ${CPPFLAGS} -c $< -o $@
 
 clean : 

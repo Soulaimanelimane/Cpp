@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 17:36:27 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/02 19:37:21 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/21 18:25:32 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,14 @@ Bureaucrat::Bureaucrat() : name("amghar") , grade(149)
     std::cout << "Bureaucrat the Constructor " << std::endl;
 }
 
-
+Bureaucrat::Bureaucrat(std::string n, int grd) : name(n), grade(grd)
+{
+    if (grd > 150)
+        throw GradeTooHighException();
+    else if (grd < 1)
+        throw GradeTooLowException();
+    std::cout << "Bureaucrat call the  parametrize Constructor " << std::endl;
+}
 
 Bureaucrat::Bureaucrat(const Bureaucrat & obj) : name(obj.name)
 {

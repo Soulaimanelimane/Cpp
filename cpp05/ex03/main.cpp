@@ -6,29 +6,23 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:19:25 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/21 18:27:17 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/08 17:37:28 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "Bureaucrat.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-    try
+
     {
-        Bureaucrat bureau("soul", 100);
-        ShrubberyCreationForm shrub("soulaimane");
-        RobotomyRequestForm robo("robo");
-        PresidentialPardonForm pres("president");
-        bureau.signForm(pres);
-        bureau.executeForm(pres);
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        if (rrf)
+            std::cout <<  rrf->getGradeSignd() << std::endl;
+        delete rrf;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() ;
-    }
+
     
 }

@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 17:35:21 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/21 18:24:09 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/06 16:44:02 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <exception>
 
+class AForm;
 class Bureaucrat
 {
     private:
@@ -35,9 +36,13 @@ class Bureaucrat
         void decrement_grade();
         
 
-        class GradeTooHighException : public std::exception {
+        void signForm(AForm &obj);
+        void executeForm(AForm const & form) const;
+        
+        class GradeTooHighException : public std::exception
+        {
             public:
-                const char* what() const throw(); 
+                const char* what() const throw();
         };
         class GradeTooLowException : public std::exception 
         {

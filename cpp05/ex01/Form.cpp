@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 11:04:40 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/05 12:11:09 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/21 18:25:46 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ Form::Form() : name("form") , sgnd(false) , grade_sngd(150), grade_exe(145)
 
 Form::Form(const std::string &n, int grade_sn, int grade_ex) : name(n),   sgnd(false) , grade_sngd(grade_sn), grade_exe(grade_ex)
 {
+    if (grade_sn < 1 || grade_ex < 1)
+        throw GradeTooLowException();
+    else if (grade_ex > 150 || grade_sn > 150)
+        throw GradeTooHighException();
     std::cout << "the Parametrize Constructor called from Form" << std::endl;
 }
 
