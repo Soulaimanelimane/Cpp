@@ -6,16 +6,16 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 20:50:56 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/21 21:11:45 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/25 00:12:23 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
-
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
+#include <limits>
 
 
 class ScalarConverter

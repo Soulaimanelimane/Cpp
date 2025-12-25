@@ -2,6 +2,8 @@
 
 class test
 {
+    private: 
+        int i;
     public:
         test(){
             std::cout << "base called\n";
@@ -11,6 +13,8 @@ class test
         };
         virtual void f() = 0;
         virtual void ft_() = 0;
+    private:
+        int ft_here() {return i;}
 };
 
 void test::ft_()
@@ -44,18 +48,6 @@ class ft : public derived
 };
 
 
-
-
-int test(char a)
-{
-    return -2;
-}
-
-int test(int f)
-{
-    return f + 2;
-}
-
 class  z
 {
     public :
@@ -84,8 +76,24 @@ using std::cout;
 #include <cstdlib>
 using namespace std;
 
+
+class Number {
+public:
+    Number(int x) { value = x; }
+    int value;
+private:
+};
+
+void print(Number n) {std::cout << n.value << std::endl;} 
+void print(int  n) {std::cout <<  "here " <<  n  << std::endl;} 
+#include <iostream>
+#include <limits>   // Required for numeric_limits
+#include <cfloat>   // Required for DBL_MAX, LDBL_MAX
+
 int main() {
-    double d = 4.22;
-    std::cout << d << std::endl;
+    long double f = 2147483648;
+    std::cout <<  std::fixed << f << std::endl;
+    if (f > std::numeric_limits<int>::max() || f  < std::numeric_limits<int>::min())
+        std::cout << "YES" << std::endl;
     return 0;
 }
