@@ -91,9 +91,7 @@ void print(int  n) {std::cout <<  "here " <<  n  << std::endl;}
 #include <cfloat>   // Required for DBL_MAX, LDBL_MAX
 
 int main() {
-    long double f = 2147483648;
-    std::cout <<  std::fixed << f << std::endl;
-    if (f > std::numeric_limits<int>::max() || f  < std::numeric_limits<int>::min())
-        std::cout << "YES" << std::endl;
+    double f = 123.000000000000000000000000000000000000000000001;
+    std::cout << std::fixed<< std::numeric_limits<double>::max() << std::endl;
     return 0;
 }

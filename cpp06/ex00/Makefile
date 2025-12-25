@@ -6,14 +6,14 @@
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/21 18:34:06 by slimane           #+#    #+#              #
-#    Updated: 2025/12/21 20:33:00 by slimane          ###   ########.fr        #
+#    Updated: 2025/12/25 18:21:49 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
-CPPFILE = main.cpp   ScalarConverter.cpp
+CPPFILE = ScalarConverter.cpp     ft_define_type.cpp      ft_print_value.cpp      main.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 
 NAME = convert
