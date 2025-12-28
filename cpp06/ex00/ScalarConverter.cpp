@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 18:36:48 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/25 18:26:58 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/28 17:13:26 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void ft_parse(std::string str)
     }
     std::istringstream ss(str);
     if (def == 1)
-        ft_print_char(ss);
+        ft_print_char(str);
     else if (def == 10)
         ft_print_int(ss);
     else if (def == 20)
