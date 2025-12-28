@@ -91,7 +91,10 @@ void print(int  n) {std::cout <<  "here " <<  n  << std::endl;}
 #include <cfloat>   // Required for DBL_MAX, LDBL_MAX
 
 int main() {
-    double f = 123.000000000000000000000000000000000000000000001;
-    std::cout << std::fixed<< std::numeric_limits<double>::max() << std::endl;
-    return 0;
+  time_t timestamp;
+  time(&timestamp);
+
+  // Display the date and time represented by the timestamp
+  cout << ctime(&timestamp);
+  return 0;
 }
