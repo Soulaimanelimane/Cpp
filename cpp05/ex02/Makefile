@@ -6,13 +6,13 @@
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 01:09:36 by slimane           #+#    #+#              #
-#    Updated: 2025/12/21 18:27:28 by slimane          ###   ########.fr        #
+#    Updated: 2026/01/20 13:25:35 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+CPPFLAGS = #-Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
 CPPFILE = AForm.cpp  Bureaucrat.cpp  main.cpp  PresidentialPardonForm.cpp  RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 

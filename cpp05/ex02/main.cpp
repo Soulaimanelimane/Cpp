@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:19:25 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/21 18:27:17 by slimane          ###   ########.fr       */
+/*   Updated: 2026/01/20 13:27:36 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int main()
         bureau.signForm(pres);
         bureau.executeForm(pres);
     }
-    catch(const std::exception& e)
+    catch(const std::exception *e)
     {
-        std::cerr << e.what() ;
+        std::cerr << e->what() ;
     }
     
 }
