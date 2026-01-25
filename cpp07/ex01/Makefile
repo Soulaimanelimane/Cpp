@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/24 23:07:21 by slimane           #+#    #+#              #
-#    Updated: 2026/01/21 15:24:47 by slimane          ###   ########.fr        #
+#    Created: 2026/01/22 15:45:09 by slimane           #+#    #+#              #
+#    Updated: 2026/01/22 20:19:50 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
-CPPFILE = Serializer.cpp  main.cpp
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFILE =  main.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 
-NAME = Serializer
+NAME = iter
 
 all:${NAME}
 
@@ -23,7 +23,7 @@ all:${NAME}
 ${NAME} : ${OBJ}
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
-%.o:%.cpp Serializer.hpp
+%.o:%.cpp Iter.hpp
 	${CPP} ${CPPFLAGS} -c $< -o $@
 
 clean : 

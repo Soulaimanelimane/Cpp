@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 21:03:41 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/21 15:29:03 by slimane          ###   ########.fr       */
+/*   Created: 2026/01/22 00:02:46 by slimane           #+#    #+#             */
+/*   Updated: 2026/01/22 20:19:35 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
+
 #include <iostream>
-#include <cstdint>
 
-typedef struct s_Data
+template <typename I, typename F>
+
+
+void iter(I *adrs, const size_t size, F &f)
 {
-    int num;
-}   t_Data;
+    if (!adrs)
+        return ; 
+    for (size_t i = 0; i < size; i++)
+        f(adrs[i]);
+}
 
-
-class Serializer
-{
-    private:
-        Serializer();
-        Serializer(const Serializer &obj);
-        Serializer&operator=(const Serializer &obj);
-        ~Serializer();
-    public:
-
-        static std::uintptr_t serialize(t_Data *ptr);
-        static t_Data *deserialize(std::uintptr_t raw);
-};
-
-
-#endif 
+#endif

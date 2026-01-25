@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 20:50:56 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/28 17:13:10 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/28 23:49:02 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class ScalarConverter
 {
     private:
-        ScalarConverter(/* args */);
+        ScalarConverter();
         ScalarConverter(const ScalarConverter &obj);
         ScalarConverter &operator=(const ScalarConverter &obj);
         ~ScalarConverter();

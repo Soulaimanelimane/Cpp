@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 18:03:14 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/28 17:58:31 by slimane          ###   ########.fr       */
+/*   Updated: 2025/12/28 23:48:47 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void ft_print_float(std::istringstream &ss)
 
 void ft_print_double(std::istringstream &ss, std::string &str)
 {
-    (void)str;
+
     long double val = 0.0;
     ss >> val;
     if (val >= 32 && val <= 126)

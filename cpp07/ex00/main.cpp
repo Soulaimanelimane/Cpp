@@ -5,31 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/24 23:08:24 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/21 15:29:34 by slimane          ###   ########.fr       */
+/*   Created: 2026/01/21 16:16:34 by slimane           #+#    #+#             */
+/*   Updated: 2026/01/21 22:10:50 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#include "whatever.hpp"
 
-int main()
+
+int main( void )
 {
-    t_Data n;
-    n.num = 2005;
-    
-    
-    t_Data *p = &n;
-    
-    std::uintptr_t boa = Serializer::serialize(p);
-    t_Data *re_p = Serializer::deserialize(boa);
-    std::cout << "uintptr_t "  << boa << std::endl;
-    std::cout  << "real p " << p << std::endl;
-    std::cout  << "fake p " << re_p << std::endl;
-
-    
-
-    std::cout << "real's value " <<  p->num << std::endl;
-    std::cout << "fake's  value " << re_p->num  << std::endl;
-    
-    
+    int a = 2;
+    int b = 3;
+    ::swap( a, b );
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+    std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+    std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+    std::string c = "chaine1";
+    std::string d = "chaine2";
+    ::swap(c, d);
+    std::cout << "c = " << c << ", d = " << d << std::endl;
+    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+return 0;
 }

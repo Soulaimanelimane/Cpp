@@ -5,17 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/24 23:07:21 by slimane           #+#    #+#              #
-#    Updated: 2026/01/21 15:24:47 by slimane          ###   ########.fr        #
+#    Created: 2025/12/26 17:10:03 by slimane           #+#    #+#              #
+#    Updated: 2025/12/26 17:14:27 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
-CPPFILE = Serializer.cpp  main.cpp
+CPPFILE = A.cpp           B.cpp           Base.cpp        C.cpp           main.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 
-NAME = Serializer
+NAME = dynamic
 
 all:${NAME}
 
@@ -23,7 +24,7 @@ all:${NAME}
 ${NAME} : ${OBJ}
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
-%.o:%.cpp Serializer.hpp
+%.o:%.cpp A.hpp           B.hpp           Base.hpp        C.hpp
 	${CPP} ${CPPFLAGS} -c $< -o $@
 
 clean : 

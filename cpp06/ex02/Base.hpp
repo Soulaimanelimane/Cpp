@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 21:03:41 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/21 15:29:03 by slimane          ###   ########.fr       */
+/*   Created: 2025/12/25 19:41:40 by slimane           #+#    #+#             */
+/*   Updated: 2025/12/25 19:44:39 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#ifndef BASE_HPP 
+#define BASE_HPP
 #include <iostream>
-#include <cstdint>
 
-typedef struct s_Data
+class Base
 {
-    int num;
-}   t_Data;
-
-
-class Serializer
-{
-    private:
-        Serializer();
-        Serializer(const Serializer &obj);
-        Serializer&operator=(const Serializer &obj);
-        ~Serializer();
     public:
-
-        static std::uintptr_t serialize(t_Data *ptr);
-        static t_Data *deserialize(std::uintptr_t raw);
+        virtual ~Base();
 };
 
-
-#endif 
+#endif

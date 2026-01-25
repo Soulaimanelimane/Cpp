@@ -5,31 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/24 23:08:24 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/21 15:29:34 by slimane          ###   ########.fr       */
+/*   Created: 2026/01/22 00:55:37 by slimane           #+#    #+#             */
+/*   Updated: 2026/01/22 20:20:05 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#include "Iter.hpp"
 
-int main()
+template <typename T> 
+void ft_print(T str)
 {
-    t_Data n;
-    n.num = 2005;
-    
-    
-    t_Data *p = &n;
-    
-    std::uintptr_t boa = Serializer::serialize(p);
-    t_Data *re_p = Serializer::deserialize(boa);
-    std::cout << "uintptr_t "  << boa << std::endl;
-    std::cout  << "real p " << p << std::endl;
-    std::cout  << "fake p " << re_p << std::endl;
+    std::cout << str << std::endl;
+}
 
-    
-
-    std::cout << "real's value " <<  p->num << std::endl;
-    std::cout << "fake's  value " << re_p->num  << std::endl;
-    
-    
+int main(int ac, char **av)
+{
+    ac++;
+    // std::string str[] = {"1337 " , "khouribga " , "2026"};
+    // int arr[] = {3,65,1};
+    char *p = av[1];
+    iter(p, 4, ft_print<char>);
 }
