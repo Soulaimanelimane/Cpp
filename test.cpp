@@ -89,6 +89,8 @@ void print(int  n) {std::cout <<  "here " <<  n  << std::endl;}
 #include <iostream>
 #include <limits>   // Required for numeric_limits
 #include <cfloat>   // Required for DBL_MAX, LDBL_MAX
+#include <algorithm>
+#include <vector>
 
 
 
@@ -99,17 +101,11 @@ void print(int  n) {std::cout <<  "here " <<  n  << std::endl;}
 
 int main() {
 
-    int *a = new int[3]{10000, 2};
-    std::cout << *a << std::endl;
-    a++;
-    std::cout << *a << std::endl;
-    a++;
-    std::cout << *a << std::endl;
-    a++;
-    std::cout << *a << std::endl;
-    a++;
-    std::cout << *a << std::endl;
-    a++;
-    std::cout << *a << std::endl;
+    std::vector<int> a;
+    a.resize(3);
+    std::vector<int> b;
+    b =a ;
+    std::cout << a.size() << std::endl;
+    std::cout << b.size() << std::endl;
     return 0;
 }
