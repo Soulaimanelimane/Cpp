@@ -96,7 +96,7 @@ void print(int  n) {std::cout <<  "here " <<  n  << std::endl;}
 
 
 
-
+/*
 
 
 int main() {
@@ -108,4 +108,33 @@ int main() {
     std::cout << a.size() << std::endl;
     std::cout << b.size() << std::endl;
     return 0;
+}*/
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+int main()
+{
+    int x;
+    int n;
+    cin >> x >> n; cin.ignore();
+
+    int sum = 0;
+    for (int i = x; i <= n ; i++ )
+    {
+        if (i % x == 0)
+            sum += i;
+    }
+
+    cout << sum << endl;
 }
