@@ -44,7 +44,7 @@ Span& Span::operator=(const Span &obj)
 
 void Span::addNumber(int n)
 {
-    if (sz > arr.size())
+    if (sz >= arr.size())
         throw std::out_of_range("the Span is full");
     arr.push_back(n);
     sz++;

@@ -125,16 +125,15 @@ using namespace std;
 
 int main()
 {
-    int x;
-    int n;
-    cin >> x >> n; cin.ignore();
+    std::vector<int> arr;
+    arr.push_back(1);
+    arr.push_back(2);
+    arr.push_back(3);
 
-    int sum = 0;
-    for (int i = x; i <= n ; i++ )
-    {
-        if (i % x == 0)
-            sum += i;
-    }
-
-    cout << sum << endl;
+    std::vector<int>::iterator it;
+    it =  ++arr.begin();
+    it++;
+    std::cout << *it << std::endl;
+    it--;
+    std::cout <<*it << std::endl;
 }

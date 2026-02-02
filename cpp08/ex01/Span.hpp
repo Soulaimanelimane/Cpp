@@ -33,6 +33,16 @@ class Span
         void addNumber(int num);
         int  shortestSpan();
         int  longestSpan();
+        template <typename it> void addNumbers(it bg, it ed)
+        {
+            size_t ds = std::distance(bg, ed);
+            if (ds +sz > N)
+            {
+                throw "the size is not enough\n";
+            }
+            for(it i = bg; i != ed; i++)
+                addNumber(*i);
+        }
 };
 
 
