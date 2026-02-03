@@ -40,6 +40,7 @@ Span& Span::operator=(const Span &obj)
     N = obj.N;
     sz = obj.sz;
     std::cout << "the Copy assingment operator Called" << std::endl;
+    return *this;
 }
 
 void Span::addNumber(int n)
