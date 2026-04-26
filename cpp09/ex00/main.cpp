@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 17:33:23 by slimane           #+#    #+#             */
-/*   Updated: 2026/04/26 20:53:28 by slimane          ###   ########.fr       */
+/*   Updated: 2026/04/26 22:53:18 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int check_line_format(std::string &str)
     }
     for (size_t i = 0; i < s.size(); i++)
     {
-        if (!isdigit)
+        // if (!isdigit)
     }
     
     return 0;
