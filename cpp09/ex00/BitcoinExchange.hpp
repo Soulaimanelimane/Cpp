@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 17:12:36 by slimane           #+#    #+#             */
-/*   Updated: 2026/04/26 18:42:32 by slimane          ###   ########.fr       */
+/*   Updated: 2026/04/27 20:19:55 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <map>
 #include <fstream>
+#include <sstream>
+
 class BitcoinExchange
 {
     private:
@@ -26,7 +28,7 @@ class BitcoinExchange
         BitcoinExchange & operator=(const  BitcoinExchange &obj);
         ~BitcoinExchange();
 
-        void add_element(unsigned int value);
+        void add_element(std::pair<std::string , unsigned int > data);
         
 };
 
