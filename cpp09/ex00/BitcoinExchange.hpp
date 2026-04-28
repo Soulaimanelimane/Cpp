@@ -21,6 +21,7 @@
 class BitcoinExchange
 {
     private:
+        std::map<std::string , unsigned int> db_data;
         std::map<std::string , unsigned int> data;
     public:
         BitcoinExchange();
@@ -28,7 +29,11 @@ class BitcoinExchange
         BitcoinExchange & operator=(const  BitcoinExchange &obj);
         ~BitcoinExchange();
 
-        void add_element(std::pair<std::string , unsigned int > data);
+        void add_element(std::pair<std::string , unsigned int > &data);
+        void add_element(std::pair<std::string , unsigned int > &db_data);
+
+        std::map<std::string , unsigned int> &get_data();
+        std::map<std::string , unsigned int> &get_db_data()
         
 };
 

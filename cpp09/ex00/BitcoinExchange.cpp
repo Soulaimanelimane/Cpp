@@ -23,10 +23,27 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
     std::cout << "Constructor called" << std::endl;
 }
 
-void BitcoinExchange::add_element(std::pair<std::string , unsigned int > data)
+void BitcoinExchange::add_element(std::pair<std::string , unsigned int > &data)
 {
     this->data[data.first] = data.second;
     
+}
+
+void BitcoinExchange::add_element(std::pair<std::string , unsigned int > &db_data)
+{
+    this->db_data[db_data.first] = db_data.second;
+    
+}
+
+
+std::map<std::string , unsigned int> &BitcoinExchange::get_data()
+{
+    return data;
+}
+
+std::map<std::string , unsigned int> &BitcoinExchange::get_db_data()
+{
+    return db_data;
 }
 
 BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &obj)
@@ -40,4 +57,5 @@ BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &obj)
  
 BitcoinExchange::~BitcoinExchange()
 {
+    std::cout << "Destructor called" << std::endl;
 }

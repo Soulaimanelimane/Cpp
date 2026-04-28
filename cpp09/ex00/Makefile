@@ -12,7 +12,7 @@
 
 
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror #-std=c++98
 CPPFILE = BitcoinExchange.cpp     main.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 

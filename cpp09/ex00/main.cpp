@@ -117,7 +117,8 @@ int check_line_format(std::string &str, BitcoinExchange &obj)
         std::cout << "A valid value must be either a float or a positive integer, between 0 and 1000." << std::endl;
         return -1;
     }
-    obj.add_element(std::make_pair(s, value));
+    std::pair<std::string , unsigned int > pr = std::make_pair(s, value); 
+    obj.add_element(pr);
     return (value);
 }
 
@@ -129,9 +130,6 @@ int main(int ac , char **av)
         return 1;
     }
     
-    std::string f = av[1];
-    float res = ft_atoi(f);
-    printf("%f\n" , res);
     std::ifstream file(av[1]);
 
     if (!file.is_open()) {
@@ -140,7 +138,7 @@ int main(int ac , char **av)
     }
     std::string str;
     int itr = 0;
-    BitcoinExchange bitcoin;
+    BitcoinExchange data;
     while (std::getline(file, str))
     {
         if (itr >  0 && str == "date | value")
@@ -149,7 +147,31 @@ int main(int ac , char **av)
             return 1;
         }
         if (itr > 0)
-            check_line_format(str, bitcoin);
+        check_line_format(str, data);
         itr++;
     }
+
+    std::ifstream db_file("data.csv");
+    std::string db_str;
+    BitcoinExchange db_data;
+    if (!db_file.is_open()) {
+        std::cout << "Error: Could not open db file!" << std::endl;
+        return 1;
+    }
+    while (std::getline(db_file, db_str))
+    {
+        std::pair<std::string , unsigned int> db_pr;
+        db_data.add_element(db_pr);
+    }
+    
+
+    std::map<std::string , unsigned int> &map_data = data.get_data();
+    std::map<std::string , unsigned int> &map_db_data = db_data.get_db_data();
+    std::map<std::string , unsigned int>::iterator it = map_data.begin();
+    // while (it != map_data.end())
+    // {
+    //     if (is_in)
+    //     it++;
+    // }
+    
 }
