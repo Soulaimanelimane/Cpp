@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 17:31:49 by slimane           #+#    #+#             */
-/*   Updated: 2026/04/27 20:21:02 by slimane          ###   ########.fr       */
+/*   Updated: 2026/04/28 18:03:00 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void BitcoinExchange::add_element(std::pair<std::string , unsigned int > &data)
     
 }
 
-void BitcoinExchange::add_element(std::pair<std::string , unsigned int > &db_data)
+void BitcoinExchange::add_db_element(std::pair<std::string , unsigned int > &db_data)
 {
     this->db_data[db_data.first] = db_data.second;
     

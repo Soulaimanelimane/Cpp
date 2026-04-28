@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 17:33:23 by slimane           #+#    #+#             */
-/*   Updated: 2026/04/27 20:19:28 by slimane          ###   ########.fr       */
+/*   Updated: 2026/04/28 18:06:37 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,11 +167,19 @@ int main(int ac , char **av)
 
     std::map<std::string , unsigned int> &map_data = data.get_data();
     std::map<std::string , unsigned int> &map_db_data = db_data.get_db_data();
-    std::map<std::string , unsigned int>::iterator it = map_data.begin();
-    // while (it != map_data.end())
-    // {
-    //     if (is_in)
-    //     it++;
-    // }
+
+    std::map<std::string , unsigned int>::iterator mp = map_data.begin();
+    while (mp != map_data.end())
+    {
+        std::map<std::string, unsigned int>::iterator it = map_db_data.lower_bound(mp->first);  
+        if (it == mp)
+            std::cout << it->first << " => " <<  it->second << " "  << mp->second *  it->second << std::endl;
+        else
+        {
+            it--;
+            std::cout << it->first << " => " <<  it->second << " "  << mp->second *  it->second << std::endl;
+        }
+        mp++;
+    }
     
 }
