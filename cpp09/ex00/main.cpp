@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 17:33:23 by slimane           #+#    #+#             */
-/*   Updated: 2026/04/29 14:21:14 by slimane          ###   ########.fr       */
+/*   Updated: 2026/04/29 19:38:17 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ float ft_atoi(std::string &str)
     return (res / dv);
 }
 
-int check_line_format(std::string &str, BitcoinExchange &obj)
+int check_line_format(std::string &str, std::string &dt , double &val)
 {
     if (str.find(" | ") == std::string::npos)
     {
@@ -117,8 +117,8 @@ int check_line_format(std::string &str, BitcoinExchange &obj)
         std::cout << " A valid value must be either a float or a positive integer, between 0 and 1000." << std::endl;
         return -1;
     }
-    std::pair<std::string , unsigned int > pr = std::make_pair(s, value); 
-    obj.add_element(pr);
+    dt = s;
+    val = value;
     return (value);
 }
 
@@ -137,20 +137,10 @@ int main(int ac , char **av)
         return 1;
     }
     std::string str;
-    int itr = 0;
     BitcoinExchange data;
-    while (std::getline(file, str))
-    {
+    std::string date;
+    double value = 0;
 
-        if (itr >  0 && str == "date | value")
-        {
-            std::cout << "Error: format file is worng the file should start with date | value" << std::endl;;
-            return 1;
-        }
-        if (itr > 0)
-        check_line_format(str, data);
-        itr++;
-    }
     std::ifstream db_file("./data.csv");
     std::string db_str;
     BitcoinExchange db_data;
@@ -158,38 +148,89 @@ int main(int ac , char **av)
         std::cout << "Error: Could not open db file!" << std::endl;
         return 1;
     }
+    std::getline(db_file, db_str);
     while (std::getline(db_file, db_str))
     {
-        std::pair<std::string , unsigned int> db_pr;
+        if (db_str.empty())
+        {
+            std::cout << "invalid empty line" << std::endl;
+            continue;
+        }
+        std::pair<std::string , double> db_pr;
         size_t fn = db_str.find(",");
         if (fn != std::string::npos)
         {
             std::string dt = db_str.substr(0, fn);
             db_pr.first  = dt;
-            db_pr.second = std::atoi(db_str.substr(fn).c_str() + 1);
-            db_data.add_element(db_pr);
+            db_pr.second = std::atof(db_str.substr(fn + 1).c_str());
+            db_data.add_db_element(db_pr);
 
         }
         else
             std::cout << "invalid line format it  should be date | value" << std::endl;
     }
-    
-    std::map<std::string , unsigned int> &map_data = data.get_data();
-    std::map<std::string , unsigned int> &map_db_data = db_data.get_db_data();
 
-    std::map<std::string , unsigned int>::iterator mp = map_data.begin();
-    while (mp != map_data.end())
+    std::map<std::string , double> &map_db_data = db_data.get_db_data();
+
+    std::getline(file, str);
+    while (std::getline(file, str))
     {
-        std::map<std::string, unsigned int>::iterator it = map_db_data.lower_bound(mp->first);  
-        if (it == mp)
-            std::cout << it->first << " => " <<  it->second << " "  << mp->second *  it->second << std::endl;
+        if (str.empty())
+        {
+            std::cout << "invalid empty line" << std::endl;
+            continue;
+        }
+        if (str == "date | value")
+        {
+            std::cout << "Error: format file is worng the file should start with date | value" << std::endl;;
+            continue;
+        }
+        if (check_line_format(str, date, value) == -1)
+            continue;
+
+            
+        std::map<std::string, double>::iterator it = map_db_data.lower_bound(date);  
+
+        if (it->first == date)
+            std::cout << it->first << " => " <<  it->second << " "  << double(value *  it->second) << std::endl;
+        else if (it == map_db_data.end())
+        {
+            it--;
+            std::cout << it->first << " => " <<  it->second << " "  << double(value *  it->second)  << std::endl;
+        }
+        else if (it == map_db_data.begin())
+            std::cout <<  "invalid date => " << date << std::endl;
         else
         {
             it--;
-            std::cout << it->first << " => " <<  it->second << " "  << mp->second *  it->second << std::endl;
+            std::cout << it->first << " => " <<  it->second << " "  << double(value *  it->second)  << std::endl;
         }
-        // std::cout << mp->first << "  " << mp->second << std::endl;
-        mp++;
     }
+
+    
+    // std::map<std::string , unsigned int> &map_data = data.get_data();
+    // std::map<std::string , double> &map_db_data = db_data.get_db_data();
+
+    // std::map<std::string , unsigned int>::iterator mp = map_data.begin();
+    // while (mp != map_data.end())
+    // {
+    //     std::cout <<  "-" << mp->first << "-" << std::endl;
+    //     std::map<std::string, double>::iterator it = map_db_data.lower_bound(mp->first);  
+    //     if (it->second == mp->second)
+    //         std::cout << it->first << " => " <<  it->second << " "  << double(mp->second *  it->second) << std::endl;
+    //     else if (it == map_db_data.end())
+    //     {
+    //         it--;
+    //         std::cout << it->first << " => " <<  it->second << " "  << double(mp->second *  it->second)  << std::endl;
+    //     }
+    //     else if (it == map_db_data.begin())
+    //         std::cout <<  "invalid date => " << mp->first << std::endl;
+    //     else
+    //     {
+    //         it--;
+    //         std::cout << it->first << " => " <<  it->second << " "  << double(mp->second *  it->second)  << std::endl;
+    //     }
+    //     mp++;
+    // }
     
 }

@@ -1,56 +1,36 @@
 #include <iostream>
+#include <string>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
-
-
-class Solution {
-public:
-    int check_is_equl_zero(vector<int> vc)
-    {
-        int count = 0;
-        size_t t = 0;
-        while(t < vc.size())
-        {
-            count += vc[t];
-            t++;
-        }
-        return count ;
-    }
-    vector<vector<int> > threeSum(vector<int>& nums) {
-        vector<vector<int> > res; 
-
-        size_t k = 0;
-        for (size_t i = 0; i < nums.size() ; i++)
-        {
-            k = i;
-            vector<int> tmp;
-            tmp.push_back(nums[i]);
-            for (size_t j = k + 1; j < k + 2 && j < nums.size()  ; j++)
-            {
-                tmp.push_back(nums[i]);
-            }
-            if (check_is_equl_zero(tmp) == 0)
-                res.push_back(tmp);
-        }
-    }
-};
-
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
 
 int main()
 {
-    vector<int> arr = {-1,0,1,2,-1,-4};
-    Solution s;
-    vector<vector<int> > vc = s.threeSum(arr);
-    for (size_t i = 0; i < vc.size(); i++)
+    string code;
+    cin >> code; cin.ignore();
+
+    if (code.size() % 3 != 0)
     {
-        vector<int> tmp = vc[i];
-        cout << "[ " ;
-        for (size_t j = 0; j < tmp.size(); j++)
-        {
-            cout << tmp[j] << " , ";
-        }
-        cout << "]"  << endl;
+        std::cout << "ERROR" << std::endl;
+        return 1;
     }
-    
+
+    int sum = 1;
+    std::string tmp;
+    for (size_t i = 0; i < code.size() ; i++)
+    {
+        tmp[i%3] = code[i];
+        if (i % 3 == 0 && i != 0)
+        {
+            std::cout << (char)std::atoi(tmp.c_str()) ;
+            tmp="";
+        }
+        
+    }
 }
