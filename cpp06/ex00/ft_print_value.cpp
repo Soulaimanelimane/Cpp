@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 18:03:14 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/28 23:48:47 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/10 22:18:51 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,8 @@ void ft_print_char(std::string  &ss)
     val = ss[0];
     std::cout << "char: " << val << std::endl;
     std::cout << "int: " << static_cast<int>(val) << std::endl;
-    if (val - static_cast<long long>(val) == 0)
-        std::cout << "float: " << static_cast<float>(val) << ".00f" << std::endl;
-    else
-        std::cout << "float: "  << static_cast<float>(val) << "f" << std::endl;
-    if (val - static_cast<long long>(val) == 0)
-        std::cout << "double: " << static_cast<double>(val) << ".00" << std::endl;
-    else
-        std::cout << "double: " << static_cast<double>(val) << std::endl;
+    std::cout << "float: " << static_cast<float>(val) << ".00f" << std::endl;
+    std::cout << "double: " << static_cast<double>(val) << ".00" << std::endl;
 }
 
 void ft_print_int(std::istringstream &ss)
@@ -41,14 +35,8 @@ void ft_print_int(std::istringstream &ss)
         std::cout << "char: Impossible" << std::endl;
 
     std::cout << "int: " << val << std::endl;
-    if (val - static_cast<long long>(val) == 0)
-        std::cout << "float: " << static_cast<float>(val) << ".00f" << std::endl;
-    else
-        std::cout << "float: "  << static_cast<float>(val) << "f" << std::endl;
-    if (val - static_cast<long long>(val) == 0)
-        std::cout << "double: " << static_cast<double>(val) << ".00" << std::endl;
-    else
-        std::cout << "double: " << static_cast<double>(val) << std::endl;
+    std::cout << "float: " << static_cast<float>(val) << ".00f" << std::endl;
+    std::cout << "double: " << static_cast<double>(val) << ".00" << std::endl;
 }
 
 void ft_print_float(std::istringstream &ss)
@@ -78,10 +66,10 @@ void ft_print_float(std::istringstream &ss)
 }
 
 
-void ft_print_double(std::istringstream &ss, std::string &str)
+void ft_print_double(std::istringstream &ss)
 {
 
-    long double val = 0.0;
+    double val = 0.0;
     ss >> val;
     if (val >= 32 && val <= 126)
         std::cout << "char: " << static_cast<char>(val) << std::endl;
@@ -104,14 +92,9 @@ void ft_print_double(std::istringstream &ss, std::string &str)
         else
             std::cout << "float: " << static_cast<float>(val) << "f" << std::endl;
     }
-    long double tmp = std::strtold(str.c_str(), NULL); 
-    if (tmp >  std::numeric_limits<double>::max() || tmp < -std::numeric_limits<double>::max())
-        std::cout << "double: Impossible" << std::endl;
+
+    if (val - static_cast<long long>(val) == 0)
+        std::cout << "double: "  << val << ".00" << std::endl;
     else
-    {
-        if (val - static_cast<long long>(val) == 0)
-            std::cout << "double: "  << val << ".00" << std::endl;
-        else
-            std::cout << "double: "  <<  val << std::endl;
-    }
+        std::cout << "double: "  <<  val << std::endl;
 }

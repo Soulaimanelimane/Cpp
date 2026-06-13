@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 18:28:15 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/21 15:29:17 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/11 15:04:58 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Serializer::Serializer(const Serializer &obj)
 
 Serializer &Serializer::operator=(const Serializer &obj)
 {
-    (void)obj;
+    static_cast<void>(obj);
     return *this;
 }
 

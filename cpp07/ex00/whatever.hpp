@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 21:50:53 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/21 22:10:05 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/13 20:22:08 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define WHATEVER_HPP
 
 #include  <iostream>
-
+#include  <string>
 
 template <typename S> void swap(S &a, S &b)
 {

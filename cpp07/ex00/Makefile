@@ -6,12 +6,12 @@
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/21 21:57:37 by slimane           #+#    #+#              #
-#    Updated: 2026/01/21 21:59:40 by slimane          ###   ########.fr        #
+#    Updated: 2026/06/13 20:22:23 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 CPPFILE =  main.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 

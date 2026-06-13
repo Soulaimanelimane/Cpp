@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 20:03:19 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/26 18:10:08 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/11 15:03:01 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,27 @@ void identify(Base &p)
     std::cout << "From refenrence identify the pointer is of type : ";
     try
     {
-        (void)dynamic_cast<A&>(p);
+        A a  = dynamic_cast<A&>(p);
+        
         std::cout << "A" << std::endl;
     }
     catch(const std::exception& e)
     {
         try
         {
-            (void)dynamic_cast<B&>(p);
+            B b = dynamic_cast<B&>(p);
             std::cout << "B" << std::endl;
         }
         catch(const std::exception& e)
         {
             try
             {
-                (void)dynamic_cast<C&>(p);
+                C c = dynamic_cast<C&>(p);
                 std::cout << "C" << std::endl;
             }
             catch(const std::exception& e)
             {
-                std::cerr << e.what() << '\n';
+                std::cerr << e.what() << std::endl;
             }   
         }
     }
