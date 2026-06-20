@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 21:50:53 by slimane           #+#    #+#             */
-/*   Updated: 2026/06/13 20:22:08 by slimane          ###   ########.fr       */
+/*   Created: 2026/06/14 17:43:30 by slimane           #+#    #+#             */
+/*   Updated: 2026/06/14 18:04:12 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#include "RPN.hpp"
 
-#include  <iostream>
-#include  <string>
-
-template <typename S> void swap(S &a, S &b)
+int main(int ac , char **av)
 {
-    S swp;
-    swp = a;
-    a = b;
-    b = swp;
+    if (ac != 2)
+    {
+        std::cerr << "Error:the program only takes arguments like this ./RPN \"{numbers}\" " << std::endl;
+        return 1;
+    }
+
+    RPN obj(av[1]);
 }
-
-template <typename M> M min(M a, M b)
-{
-    if (a < b)
-        return a;
-    return b;
-}
-
-
-template <typename M> M max(M a, M b)
-{
-    if (a > b)
-        return a;
-    return b;
-}
-
-#endif

@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 21:50:53 by slimane           #+#    #+#             */
-/*   Updated: 2026/06/13 20:22:08 by slimane          ###   ########.fr       */
+/*   Created: 2026/06/14 17:42:04 by slimane           #+#    #+#             */
+/*   Updated: 2026/06/14 17:57:04 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#ifndef RPN_HPP
+#define RPN_HPP
 
-#include  <iostream>
-#include  <string>
+#include <iostream>
+#include <stack>
 
-template <typename S> void swap(S &a, S &b)
+class RPN
 {
-    S swp;
-    swp = a;
-    a = b;
-    b = swp;
-}
-
-template <typename M> M min(M a, M b)
-{
-    if (a < b)
-        return a;
-    return b;
-}
+    private:
+        std::stack<int> numbers;
+    public:
+        RPN();
+        RPN(std::string str);
+        RPN(const RPN &obj);
+        RPN& operator=(const RPN &obj);
+        ~RPN();
+};
 
 
-template <typename M> M max(M a, M b)
-{
-    if (a > b)
-        return a;
-    return b;
-}
+
 
 #endif

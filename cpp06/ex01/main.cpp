@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 23:08:24 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/21 15:29:34 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/10 23:03:57 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main()
     
     
     t_Data *p = &n;
+    
+
     
     std::uintptr_t boa = Serializer::serialize(p);
     t_Data *re_p = Serializer::deserialize(boa);

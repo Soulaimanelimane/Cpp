@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 18:36:48 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/28 17:13:26 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/10 22:37:48 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter &obj)
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj)
 {
-    (void)obj;
+    static_cast<void>(obj);
     return *this;
 }
 
@@ -50,7 +50,7 @@ void ft_parse(std::string str)
         ft_print_float(s);
     }
     else if (def == 30)
-        ft_print_double(ss, str);
+        ft_print_double(ss);
 }
 
 int is_inf(std::string &str)

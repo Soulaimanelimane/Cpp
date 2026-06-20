@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 20:50:56 by slimane           #+#    #+#             */
-/*   Updated: 2025/12/28 23:49:02 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/10 22:28:23 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,13 @@ class ScalarConverter
         ScalarConverter &operator=(const ScalarConverter &obj);
         ~ScalarConverter();
     public:
-        
         static void convert(std::string str);
 };
 
 void    ft_print_char(std::string &ss);
 void    ft_print_int(std::istringstream &ss);
 void    ft_print_float(std::istringstream &ss);
-void    ft_print_double(std::istringstream &ss, std::string &str);
+void    ft_print_double(std::istringstream &ss);
 int     ft_isint(std::string str);
 int     ft_isfloat(std::string str);
 int     ft_isdouble(std::string str);

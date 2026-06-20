@@ -5,17 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/24 23:07:21 by slimane           #+#    #+#              #
-#    Updated: 2026/06/11 15:02:21 by slimane          ###   ########.fr        #
+#    Created: 2026/06/20 04:49:44 by slimane           #+#    #+#              #
+#    Updated: 2026/06/20 04:49:44 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
-CPPFILE = Serializer.cpp  main.cpp
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFILE =  main.cpp PmergeMe.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 
-NAME = Serializer
+NAME = PmergeMe
 
 all:${NAME}
 
@@ -23,7 +24,7 @@ all:${NAME}
 ${NAME} : ${OBJ}
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
-%.o:%.cpp Serializer.hpp
+%.o:%.cpp PmergeMe.hpp
 	${CPP} ${CPPFLAGS} -c $< -o $@
 
 clean : 

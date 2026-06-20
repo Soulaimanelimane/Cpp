@@ -6,13 +6,12 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 18:39:33 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/25 21:00:06 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/13 22:02:23 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include "Array.hpp"
-
 
 int main()
 {
@@ -27,7 +26,7 @@ int main()
     b[0] = 11;
     for (size_t i = 0; i < a.size(); i++)
     {
-        std::cout << a[i] << "  " << b[i] << std::endl;
+        std::cout << a[i] << "  " << b[i]<< std::endl;
     }
     
     Array<std::string> str(3);
@@ -39,5 +38,18 @@ int main()
     cp[2] = "BN";
     for (size_t i = 0; i < str.size(); i++)
         std::cout << str[i] << "  " << cp[i] <<  std::endl;
-    
+    try 
+    {
+        Array<int> arr(5);
+        for (size_t i = 0; i <= arr.size(); i++)
+        {
+            arr[i] = i;
+            std::cout << arr[i] << std::endl;
+        }
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
 }   

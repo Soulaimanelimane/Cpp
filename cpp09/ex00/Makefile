@@ -6,13 +6,13 @@
 #    By: slimane <slimane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/26 17:34:04 by slimane           #+#    #+#              #
-#    Updated: 2026/04/26 17:35:16 by slimane          ###   ########.fr        #
+#    Updated: 2026/06/14 17:53:32 by slimane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address #-std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CPPFILE = BitcoinExchange.cpp     main.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 
