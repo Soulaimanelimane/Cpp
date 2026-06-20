@@ -109,12 +109,11 @@ int main() {
     std::cout << b.size() << std::endl;
     return 0;
 }*/
-
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -125,15 +124,16 @@ using namespace std;
 
 int main()
 {
-    std::vector<int> arr;
-    arr.push_back(1);
-    arr.push_back(2);
-    arr.push_back(3);
+    int n;
+    cin >> n; cin.ignore();
 
-    std::vector<int>::iterator it;
-    it =  ++arr.begin();
-    it++;
-    std::cout << *it << std::endl;
-    it--;
-    std::cout <<*it << std::endl;
+    string str ;
+    int i  =0;
+    while(i < n - 1)
+    {
+        str += "1";
+        i++;
+    }
+    cout << (stoi(str, nullptr , 2) * 2) + 1 << endl;
+
 }
