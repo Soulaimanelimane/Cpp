@@ -1,5 +1,8 @@
 #include "test.hpp"
 #include <vector>
+#include <algorithm>
+#include <stack>
+#include <queue>
 
 template <typename T> 
 T add(T a , T b)
@@ -9,7 +12,15 @@ T add(T a , T b)
 
 int main()
 {
-    int * a = new int(4);
-
-    std::cout << add(12.3, 12.2) << std::endl;
+    std::stack<int> st;
+    st.push(10);
+    st.push(11);
+    st.push(12);
+    st.push(13);
+    while (!st.empty())
+    {
+        std::cout << st.top() << std::endl;
+        st.pop();
+    }
+    
 }

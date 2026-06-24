@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 23:51:03 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/27 16:28:06 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/15 23:20:36 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Span::Span()
 {
     N = 0;
     sz = 0;
-    arr.resize(0);
     std::cout << "the default Constructor Called" << std::endl;
 }
 
@@ -24,7 +23,6 @@ Span::Span(unsigned int n)
 {
     N = n; 
     sz = 0;
-    arr.resize(N);
     std::cout << "the parametrize operator Called" << std::endl;
 }
 
@@ -45,22 +43,33 @@ Span& Span::operator=(const Span &obj)
 
 void Span::addNumber(int n)
 {
-    if (sz >= arr.size())
-        throw std::out_of_range("the Span is full");
     arr.push_back(n);
     sz++;
 }
 
 int Span::shortestSpan()
 {
-    std::vector<int>::iterator min = std::min_element(arr.begin(), arr.end());
-    return (*min);
+    int mn =  std::numeric_limits<int>::max();
+    for (size_t i = 0; i < arr.size(); i++)
+    {
+        int tmp_min = 0;
+        for (size_t j = i + 1; j < arr.size(); j++)
+        {
+            tmp_min = abs(arr[i] - arr[j]);
+            if (tmp_min  < mn)
+                mn = tmp_min;
+        }
+    }
+    return mn;
 }
 
 int Span::longestSpan()
 {
-    std::vector<int>::iterator max = std::max_element(arr.begin(), arr.end());
-    return (*max);
+    if (arr.size() == 1)
+        return 0;
+    std::vector<int>::iterator mn = std::min_element(arr.begin(), arr.end());
+    std::vector<int>::iterator mx = std::max_element(arr.begin(), arr.end());
+    return *mx - *mn;
 }
 
 Span::~Span()
@@ -68,8 +77,3 @@ Span::~Span()
     std::cout << "Destructor Called" << std::endl;
 }
 
-// 222222
-// 2222
-// 666
-// 88
-// 32

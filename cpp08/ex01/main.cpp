@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 00:00:46 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/27 12:08:36 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/17 18:05:44 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,26 @@
 
 int main()
 {
-    std::vector<int> arr;
 
-    for (size_t i = 0; i < 10000; i++)
+    try
     {
-        arr.push_back((i*5)-(i+2));
+        std::vector<int> arr;
+        arr.push_back(6);
+        arr.push_back(3);
+        arr.push_back(17);
+        arr.push_back(9);
+        arr.push_back(11);
+        Span obj(arr.size());
+        obj.addNumbers(arr.begin(), arr.end());
+
+        std::cout << obj.shortestSpan() << std::endl;
+        std::cout << obj.longestSpan() << std::endl;
     }
-    Span obj(10000);
-    obj.addNumbers(arr.begin(), arr.end());
-
-    std::vector<int>::iterator it;
-    for (it = arr.begin(); it != arr.end(); it++)
+    catch(const std::exception& e)
     {
-        std::cout << *it << std::endl; 
+        std::cerr << e.what() << std::endl;
     }
     
+    
+
 }

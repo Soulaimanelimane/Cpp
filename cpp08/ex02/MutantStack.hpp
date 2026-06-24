@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 19:21:47 by marvin            #+#    #+#             */
-/*   Updated: 2026/02/02 19:21:47 by marvin           ###   ########.fr       */
+/*   Updated: 2026/06/17 19:34:48 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ class MutantStack : public std::stack<T>
 {
 public:
     MutantStack() : std::stack<T>() {}
-    MutantStack( const typename std::stack<T>::container_type &containe) : std::stack<T>(containe) {}
-    MutantStack(const MutantStack &other) : std::stack<T>(other) {}
-    MutantStack &operator=(const MutantStack &other)
+    MutantStack( const typename std::stack<T>::container_type &obj) : std::stack<T>(obj) {}
+    MutantStack(const MutantStack &obj) : std::stack<T>(obj) {}
+    MutantStack &operator=(const MutantStack &obj)
     {
-        if (this != &other)
-            std::stack<T>::operator=(other);
+        if (this != &obj)
+            std::stack<T>::operator=(obj);
         return *this;
     }
     ~MutantStack() {}
@@ -37,7 +37,7 @@ public:
     typedef typename std::stack<T>::container_type::iterator iterator;
     typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 
-    /* Iterator access */
+    
     iterator begin()
     {
         return this->c.begin();

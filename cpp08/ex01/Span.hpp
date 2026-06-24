@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 23:25:30 by slimane           #+#    #+#             */
-/*   Updated: 2026/01/26 23:54:34 by slimane          ###   ########.fr       */
+/*   Updated: 2026/06/15 23:10:42 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ class Span
         template <typename it> void addNumbers(it bg, it ed)
         {
             size_t ds = std::distance(bg, ed);
-            if (ds +sz > N)
-            {
-                throw "the size is not enough\n";
-            }
+            if (ds + sz > N)
+                throw std::out_of_range("size of the element is more than the capacity of the span");
             for(it i = bg; i != ed; i++)
                 addNumber(*i);
+        
+            
         }
 };
 
