@@ -7,3 +7,4 @@ T TM<T>::add(T a, T b)
 }
 
 template class TM<int>;
+template class TM<float>;
