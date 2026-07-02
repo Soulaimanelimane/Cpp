@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror # -std=c++98
 CPPFILE = RPN.cpp         main.cpp
 OBJ = ${CPPFILE:.cpp=.o}
 

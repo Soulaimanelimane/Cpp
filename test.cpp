@@ -1,10 +1,7 @@
-#include "test.hpp"
-template <typename T>
+#include <iostream>
 
-T TM<T>::add(T a, T b)
+int main()
 {
-    return a + b;
+    std::cout << "Hello\n";
+    return 0;
 }
-
-template class TM<int>;
-template class TM<float>;

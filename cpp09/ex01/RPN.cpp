@@ -21,14 +21,55 @@ RPN::RPN(std::string str)
 {
     for (size_t i = 0; i < str.size(); i++)
     {
-        if (isdigit(str[i]))
+        if (str[i] == ' ') {
+            continue;
+        }
+        else if (isdigit(str[i])) {
             numbers.push(str[i] - '0');
-        
+        }
+        else if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/')
+        {
+            if (numbers.size() < 2) {
+                std::cerr << "Error" << std::endl;
+                return;
+            }
+
+            int value2 = numbers.top();
+            numbers.pop();
+            int value1 = numbers.top();
+            numbers.pop();
+
+            if (str[i] == '+')
+                numbers.push(value1 + value2);
+            else if (str[i] == '-')
+                numbers.push(value1 - value2);
+            else if (str[i] == '*')
+                numbers.push(value1 * value2);
+            else if (str[i] == '/') {
+                if (value2 == 0) {
+                    std::cerr << "Error" << std::endl;
+                    return;
+                }
+                numbers.push(value1 / value2);
+            }
+        }
+        else {
+            std::cerr << "Error" << std::endl;
+            return;
+        }
     }
 
-    
+    if (numbers.size() != 1) {
+        std::cerr << "Error" << std::endl;
+        return;
+    }
+
+    std::cout << numbers.top() << std::endl;
+
     
 }
+
+
 RPN::RPN(const RPN &obj)
 {
     *this = obj;
