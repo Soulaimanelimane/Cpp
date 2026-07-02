@@ -6,12 +6,13 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 04:43:16 by slimane           #+#    #+#             */
-/*   Updated: 2026/06/30 21:24:31 by slimane          ###   ########.fr       */
+/*   Updated: 2026/07/02 21:16:25 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+int count = 0; 
 int ft_atoi(char *str)
 {
     long res = 0;
@@ -53,7 +54,7 @@ std::vector<int> jackopstall(int sz)
 		elem1 = elem2;
 		elem2 = next;
 
-		for (int k = elem2 - 1; k >= prev; k--)
+		for (int k = elem2 - 1;  k >= prev; k--)
 		{
 			if (k < sz)
 				ord.push_back(k);
@@ -97,6 +98,7 @@ std::deque<int> jackopstall_dq(int sz)
 
 bool cmp(const std::vector<int> &vc1, const std::vector<int> &vc2)
 {
+    count++;
 	return vc1.front() < vc2.front();
 }
 bool comp_deque(const std::deque<int> &dq1, const std::deque<int> &dq2)
@@ -146,9 +148,10 @@ void ft_sort_group_vector(std::vector<std::vector<int> > &vecs)
         winners.push_back(winner);
         pend.push_back(loser);
     }
-    
+                                                                                                                                 
+         
     if (left_over)
-        pend.push_back(lftovr);
+        pend.push_back(lftovr);                                                                                                                                                                                                                        
 
 
 
@@ -162,34 +165,16 @@ void ft_sort_group_vector(std::vector<std::vector<int> > &vecs)
     if (!pend.empty())
         winners.insert(winners.begin(), pend[0]);
 
-        
+
+
     for (size_t i = 1; i < or_jcb.size(); i++)
 	{
 		size_t idx = or_jcb[i];
 		if (idx >= pend.size())
 			continue;
-        std::vector<std::vector<int> >::iterator insert_pos ;
-		if (idx < hlp_vec.size())
-		{
-			int partner_value = hlp_vec[idx];
-
-			std::vector<std::vector<int> >::iterator partner_pos = winners.end();
-			for (std::vector<std::vector<int> >::iterator it = winners.begin(); it != winners.end(); ++it)
-			{
-				if ((*it).front() == partner_value)
-				{
-					partner_pos = it;
-					break;
-				}
-			}
-
-			insert_pos = std::lower_bound(winners.begin(), partner_pos, pend[idx], cmp);
-		}
-		else
-		{
-			insert_pos = std::lower_bound(winners.begin(), winners.end(), pend[idx], cmp);
-		}
+        std::vector<std::vector<int> >::iterator insert_pos = std::lower_bound(winners.begin(), winners.end(), pend[idx], cmp);
         winners.insert(insert_pos, pend[idx]);
+        
 	}
     vecs = winners;
 }
@@ -256,28 +241,8 @@ void ft_sort_group_deque(std::deque<std::deque<int> > &deqs)
         size_t idx = order_dq[i];
         if (idx  >= main.size())
             continue;
-        
-        if (idx < help_deque.size())
-        {
-            int hlp_vl = help_deque[idx];
-            ;
-            std::deque<std::deque<int> >::iterator exptd_pos;
-            for (std::deque<std::deque<int> >::iterator it = main.begin(); it!= main.end(); it++)
-            {
-                if ((*it).front() == hlp_vl)
-                {
-                    exptd_pos = it;
-                    break;
-                }
-            }
-            std::deque<std::deque<int> >::iterator insrt_pos = std::lower_bound(main.begin(), exptd_pos, pend[idx], comp_deque) ;
-            main.insert(insrt_pos, pend[idx]);
-        }
-        else
-        {
-            std::deque<std::deque<int> >::iterator insrt_pos = std::lower_bound(main.begin(), main.end(), pend[idx], comp_deque) ;
-            main.insert(insrt_pos, pend[idx]);
-        }
+        std::deque<std::deque<int> >::iterator insrt_pos = std::lower_bound(main.begin(), main.end(), pend[idx], comp_deque) ;
+        main.insert(insrt_pos, pend[idx]);
     }
     deqs = main;
 }
