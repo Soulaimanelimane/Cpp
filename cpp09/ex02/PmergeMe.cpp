@@ -42,7 +42,9 @@ std::vector<int> jackopstall(int sz)
     
     ord.push_back(0);
     if (sz == 1)
+    {
         return ord;
+    }
         
 	int elem1 = 1;
     int elem2 = 1;
@@ -73,7 +75,10 @@ std::deque<int> jackopstall_dq(int sz)
     
     ord.push_back(0);
     if (sz == 1)
+    {
         return ord;
+
+    }
         
 	int elem1 = 1;
     int elem2 = 1;
@@ -172,9 +177,28 @@ void ft_sort_group_vector(std::vector<std::vector<int> > &vecs)
 		size_t idx = or_jcb[i];
 		if (idx >= pend.size())
 			continue;
-        std::vector<std::vector<int> >::iterator insert_pos = std::lower_bound(winners.begin(), winners.end(), pend[idx], cmp);
-        winners.insert(insert_pos, pend[idx]);
-        
+
+
+        // if (idx < hlp_vec.size())
+		// {
+		// 	int partner_value = hlp_vec[idx];
+
+		// 	std::vector<std::vector<int> >::iterator partner_pos = winners.end();
+		// 	for (std::vector<std::vector<int> >::iterator it = winners.begin(); it != winners.end(); ++it)
+		// 	{
+		// 		if ((*it).front() == partner_value)
+		// 		{
+		// 			partner_pos = it;
+		// 			break;
+		// 		}
+		// 	}
+        //     std::vector<std::vector<int> >::iterator insert_pos = std::lower_bound(winners.begin(), partner_pos, pend[idx], cmp);
+		// 	winners.insert(insert_pos, pend[idx]);
+        // }
+        // else {
+          std::vector<std::vector<int> >::iterator insert_pos = std::lower_bound(winners.begin(), winners.end(), pend[idx], cmp);
+          winners.insert(insert_pos, pend[idx]);
+        // }
 	}
     vecs = winners;
 }
@@ -262,21 +286,31 @@ void ft_container(std::vector<int> &vec, std::deque<int> &deq)
         group_deque.push_back(tmp_dq);
     }
     
+    std::cout << "Before : ";
 
-	clock_t vec_start = clock();
+    for (size_t i = 0; i < group_vector.size(); i++)
+    {
+        for (size_t j= 0; j < group_vector[i].size(); j++)
+        {
+            std::cout << group_vector[i][j] <<  " ";
+        }
+    }
+    std::cout << std::endl;
+	clock_t vec_demarage = clock();
     ft_sort_group_vector(group_vector);
-	clock_t vec_end = clock();
-	double vctime = static_cast<double>(vec_end - vec_start) / CLOCKS_PER_SEC * 1000000.0;
+	clock_t vec_stop = clock();
+	double vctime = static_cast<double>(vec_stop - vec_demarage) / CLOCKS_PER_SEC * 1000000.0;
 
 
-	clock_t deq_start = clock();
+	clock_t deq_demarage = clock();
 	ft_sort_group_deque(group_deque);
-	clock_t deq_end = clock();
-	double dqtime = static_cast<double>(deq_end - deq_start) / CLOCKS_PER_SEC * 1000000.0;
+	clock_t deq_stop = clock();
+	double dqtime = static_cast<double>(deq_stop - deq_demarage) / CLOCKS_PER_SEC * 1000000.0;
     
    
 
-    std::cout << "sort vector :";
+
+    std::cout << "After:";
     for (size_t i = 0; i < group_vector.size(); i++)
     {
         for (size_t j= 0; j < group_vector[i].size(); j++)
@@ -286,21 +320,9 @@ void ft_container(std::vector<int> &vec, std::deque<int> &deq)
     }
     std::cout << std::endl;
 
-    
-
-    std::cout << "sort deque :";
-    for (size_t i = 0; i < group_deque.size(); i++)
-    {
-        for (size_t j= 0; j < group_deque[i].size(); j++)
-        {
-            std::cout << group_deque[i][j] <<  " ";
-        }
-    }
-    std::cout << std::endl;
 
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << vctime << " us" << std::endl;
     std::cout << "Time to process a range of " << deq.size() << " elements with std::deque  : " << dqtime << " us" << std::endl;
-    
 }
 
 PmergeMe::PmergeMe(char **av)
