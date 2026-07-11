@@ -6,13 +6,13 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 04:43:16 by slimane           #+#    #+#             */
-/*   Updated: 2026/07/02 21:16:25 by slimane          ###   ########.fr       */
+/*   Updated: 2026/07/07 16:41:11 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-int count = 0; 
+
 int ft_atoi(char *str)
 {
     long res = 0;
@@ -42,9 +42,7 @@ std::vector<int> jackopstall(int sz)
     
     ord.push_back(0);
     if (sz == 1)
-    {
         return ord;
-    }
         
 	int elem1 = 1;
     int elem2 = 1;
@@ -103,7 +101,6 @@ std::deque<int> jackopstall_dq(int sz)
 
 bool cmp(const std::vector<int> &vc1, const std::vector<int> &vc2)
 {
-    count++;
 	return vc1.front() < vc2.front();
 }
 bool comp_deque(const std::deque<int> &dq1, const std::deque<int> &dq2)
@@ -169,8 +166,7 @@ void ft_sort_group_vector(std::vector<std::vector<int> > &vecs)
     
     if (!pend.empty())
         winners.insert(winners.begin(), pend[0]);
-
-
+    
 
     for (size_t i = 1; i < or_jcb.size(); i++)
 	{
@@ -179,26 +175,26 @@ void ft_sort_group_vector(std::vector<std::vector<int> > &vecs)
 			continue;
 
 
-        // if (idx < hlp_vec.size())
-		// {
-		// 	int partner_value = hlp_vec[idx];
+        if (idx < hlp_vec.size())
+		{
+			int partner_value = hlp_vec[idx];
 
-		// 	std::vector<std::vector<int> >::iterator partner_pos = winners.end();
-		// 	for (std::vector<std::vector<int> >::iterator it = winners.begin(); it != winners.end(); ++it)
-		// 	{
-		// 		if ((*it).front() == partner_value)
-		// 		{
-		// 			partner_pos = it;
-		// 			break;
-		// 		}
-		// 	}
-        //     std::vector<std::vector<int> >::iterator insert_pos = std::lower_bound(winners.begin(), partner_pos, pend[idx], cmp);
-		// 	winners.insert(insert_pos, pend[idx]);
-        // }
-        // else {
+			std::vector<std::vector<int> >::iterator partner_pos = winners.end();
+			for (std::vector<std::vector<int> >::iterator it = winners.begin(); it != winners.end(); ++it)
+			{
+				if ((*it).front() == partner_value)
+				{
+					partner_pos = it;
+					break;
+				}
+			}
+            std::vector<std::vector<int> >::iterator insert_pos = std::lower_bound(winners.begin(), partner_pos, pend[idx], cmp);
+			winners.insert(insert_pos, pend[idx]);
+        }
+        else {
           std::vector<std::vector<int> >::iterator insert_pos = std::lower_bound(winners.begin(), winners.end(), pend[idx], cmp);
           winners.insert(insert_pos, pend[idx]);
-        // }
+        }
 	}
     vecs = winners;
 }

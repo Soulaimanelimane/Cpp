@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 17:33:23 by slimane           #+#    #+#             */
-/*   Updated: 2026/04/29 19:38:17 by slimane          ###   ########.fr       */
+/*   Updated: 2026/07/11 16:52:40 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int check_line_format(std::string &str, std::string &dt , double &val)
     std::istringstream iss(s);
 
     int j = 0;
-    while (std::getline(iss, token, '-')&& j < 3)
+    while (std::getline(iss, token, '-') && j < 3)
     {
         if (!token.empty()) 
             result[j] = token;
@@ -137,7 +137,6 @@ int main(int ac , char **av)
         return 1;
     }
     std::string str;
-    BitcoinExchange data;
     std::string date;
     double value = 0;
 
@@ -173,6 +172,8 @@ int main(int ac , char **av)
     std::map<std::string , double> &map_db_data = db_data.get_db_data();
 
     std::getline(file, str);
+    if (str != "date | value")
+        std::cout << "Error: format file is worng the file should start with date | value" << std::endl;
     while (std::getline(file, str))
     {
         if (str.empty())

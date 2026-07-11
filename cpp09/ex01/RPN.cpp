@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 17:45:31 by slimane           #+#    #+#             */
-/*   Updated: 2026/06/14 19:15:13 by slimane          ###   ########.fr       */
+/*   Updated: 2026/07/11 17:07:05 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ RPN::RPN(std::string str)
             else if (str[i] == '*')
                 numbers.push(value1 * value2);
             else if (str[i] == '/') {
-                if (value2 == 0) {
+                if (value2 == 0) 
+                {
                     std::cerr << "Error" << std::endl;
                     return;
                 }
@@ -58,6 +59,7 @@ RPN::RPN(std::string str)
             return;
         }
     }
+
 
     if (numbers.size() != 1) {
         std::cerr << "Error" << std::endl;

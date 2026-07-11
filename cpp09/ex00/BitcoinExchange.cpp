@@ -6,7 +6,7 @@
 /*   By: slimane <slimane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 17:31:49 by slimane           #+#    #+#             */
-/*   Updated: 2026/04/29 17:30:00 by slimane          ###   ########.fr       */
+/*   Updated: 2026/07/11 16:51:36 by slimane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,10 @@ BitcoinExchange::BitcoinExchange()
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
 {
-    data = obj.data;
-    std::cout << "Constructor called" << std::endl;
+    *this = obj;
+    std::cout << "Copy Constructor called" << std::endl;
 }
 
-void BitcoinExchange::add_element(std::pair<std::string , unsigned int > &data)
-{
-    this->data[data.first] = data.second;
-    
-}
 
 void BitcoinExchange::add_db_element(std::pair<std::string , double> &db_data)
 {
@@ -36,10 +31,6 @@ void BitcoinExchange::add_db_element(std::pair<std::string , double> &db_data)
 }
 
 
-std::map<std::string , unsigned int> &BitcoinExchange::get_data()
-{
-    return data;
-}
 
 std::map<std::string , double> &BitcoinExchange::get_db_data()
 {
@@ -50,7 +41,7 @@ BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &obj)
 {
     if (this == &obj)
         return *this;
-    data = obj.data;
+    db_data = obj.db_data;
     std::cout << "copy assingment Called" << std::endl;
     return *this ;
 }
